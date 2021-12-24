@@ -1,0 +1,5 @@
+grafana/grafana:8.1.1
+grafana/loki:2.3.0
+timescale/timescaledb:latest-pg12
+dpage/pgadmin4
+nginx:latest

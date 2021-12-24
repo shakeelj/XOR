@@ -1,0 +1,33 @@
+version: '3.3'
+services:
+    grafana:
+        container_name: grafana
+        ports:
+            - '3000:3000'
+        image: grafana/grafana:8.1.1
+    loki:
+        container_name: loki
+        ports:
+            - '3100:3100'
+        image: grafana/loki:2.3.0
+
+    timescaledb:
+        container_name: timescaledb
+        ports:
+            - '5432:5432'
+        image: timescale/timescaledb:latest-pg12
+        environment:
+            - POSTGRES_PASSWORD=password
+    pgadmin4:
+        ports:
+            - '80:80'
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=user@user.com
+            - PGADMIN_DEFAULT_PASSWORD=password
+        container_name: pgadmin
+        image: dpage/pgadmin4
+    nginx:
+        container_name: nginx
+        ports:
+            - '8080:8080'
+        image: nginx
